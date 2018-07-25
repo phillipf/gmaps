@@ -69,8 +69,8 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
     var circleDrawHandler, clearMarkers, earthRadii, map, markers, polygonDestructionHandler, searchBox, searchInput, updateURL;
     markers = [];
     map = new google.maps.Map($('#map')[0], {
-      zoom: 10,
-      center: new google.maps.LatLng(-37.809581, 144.895007),
+      zoom: 13,
+      center: new google.maps.LatLng(-37.829581, 144.875007),
       mapType: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
       mapTypeControl: true,
