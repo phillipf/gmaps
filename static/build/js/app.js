@@ -161,7 +161,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
           return google.maps.event.addListener(circle, 'click', FCAD);
         };
     ATP();
-    google.maps.event.addListener(map, 'click', circleDrawHandler);
+    //google.maps.event.addListener(map, 'click', circleDrawHandler);
     searchInput = document.getElementById('searchInput');
     $(searchInput.form).on({
       submit: function() {
@@ -181,7 +181,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
      return autocomplete;
     }*/
 
-    var melbBounds = new google.maps.LatLngBounds(
+    /*var melbBounds = new google.maps.LatLngBounds(
        new google.maps.LatLng(-37.540112, 145.507736),
        new google.maps.LatLng(-38.411251, 144.553207)
        );
@@ -191,7 +191,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
           bounds: melbBounds,
           strictBounds: true,
           //componentRestrictions: {country: "au", cities: "melb"}
-    };
+    };*/
 
     /*var searchBox = new google.maps.places.Autocomplete(searchInput, {
        types: ['address'],
