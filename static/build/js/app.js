@@ -70,7 +70,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
     markers = [];
     map = new google.maps.Map($('#map')[0], {
       zoom: 10,
-      center: new google.maps.LatLng(51.500358, -0.125506),
+      center: new google.maps.LatLng(-37.809581, 144.895007),
       mapType: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
       mapTypeControl: true,
@@ -129,6 +129,60 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
       google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
       return google.maps.event.addListener(circle, 'click', circleDrawHandler);
     };
+    FCAD = function(e) {
+        var circle, radius, select, unitKey;
+
+        select = $('#unitSelector');
+        //unitKey = $('option', select).eq(select[0].selectedIndex).val();
+        unitKey = $('option', select).eq(select[0].selectedIndex).val();
+        //radius = parseFloat(document.getElementById('radiusInput').value);
+        radius = 1.86411
+        radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
+        circle = new google.maps.Circle({
+          center: new google.maps.LatLng(-37.809581, 144.895007),
+          clickable: true,
+          draggable: false,
+          editable: false,
+          fillColor: '#004de8',
+          fillOpacity: 0.27,
+          map: map,
+          radius: radius,
+          strokeColor: '#004de8',
+          strokeOpacity: 0.62,
+          strokeWeight: 1
+        });
+        //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
+        //return google.maps.addListener(circle)
+        return circle;
+      };
+    FCAD();
+    ATP = function(e) {
+          var circle, radius, select, unitKey;
+
+          select = $('#unitSelector');
+          //unitKey = $('option', select).eq(select[0].selectedIndex).val();
+          unitKey = $('option', select).eq(select[0].selectedIndex).val();
+          //radius = parseFloat(document.getElementById('radiusInput').value);
+          radius = 1.24274
+          radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
+          circle = new google.maps.Circle({
+            center: new google.maps.LatLng(-37.8730674, 144.79242),
+            clickable: true,
+            draggable: false,
+            editable: false,
+            fillColor: '#004de8',
+            fillOpacity: 0.27,
+            map: map,
+            radius: radius,
+            strokeColor: '#004de8',
+            strokeOpacity: 0.62,
+            strokeWeight: 1
+          });
+          //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
+          //return google.maps.addListener(circle)
+          return circle;
+        };
+    ATP();
     google.maps.event.addListener(map, 'click', circleDrawHandler);
     searchInput = document.getElementById('searchInput');
     $(searchInput.form).on({
