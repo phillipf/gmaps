@@ -140,20 +140,20 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
         radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
         circle = new google.maps.Circle({
           center: new google.maps.LatLng(-37.8034762, 144.8978407),
-          clickable: true,
-          draggable: false,
-          editable: false,
-          fillColor: '#004de8',
-          fillOpacity: 0.27,
-          map: map,
-          radius: radius,
-          strokeColor: '#004de8',
-          strokeOpacity: 0.62,
-          strokeWeight: 1
-        });
-        //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
-        //return google.maps.addListener(circle)
-        return circle;
+            clickable: true,
+            draggable: false,
+            editable: false,
+            fillColor: '#004de8',
+            fillOpacity: 0.27,
+            map: map,
+            radius: radius,
+            strokeColor: '#004de8',
+            strokeOpacity: 0.62,
+            strokeWeight: 1
+          });
+          google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
+          return google.maps.addListener(circle)
+          //return circle;
       };
     FCAD();
     ATP = function(e) {
@@ -178,9 +178,9 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
             strokeOpacity: 0.62,
             strokeWeight: 1
           });
-          //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
-          //return google.maps.addListener(circle)
-          return circle;
+          google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
+          return google.maps.addListener(circle)
+          //return circle;
         };
     ATP();
     google.maps.event.addListener(map, 'click', circleDrawHandler);
