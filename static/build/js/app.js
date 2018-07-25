@@ -70,7 +70,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
     markers = [];
     map = new google.maps.Map($('#map')[0], {
       zoom: 10,
-      center: new google.maps.LatLng(-37.809581, 144.895007),
+      center: new google.maps.LatLng(51.500358, -0.125506),
       mapType: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
       mapTypeControl: true,
@@ -107,17 +107,14 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
       }
       return markers = [];
     };
-    FCAD = function(e) {
+    circleDrawHandler = function(e) {
       var circle, radius, select, unitKey;
-
       select = $('#unitSelector');
-      //unitKey = $('option', select).eq(select[0].selectedIndex).val();
       unitKey = $('option', select).eq(select[0].selectedIndex).val();
-      //radius = parseFloat(document.getElementById('radiusInput').value);
-      radius = 1.86411
+      radius = parseFloat(document.getElementById('radiusInput').value);
       radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
       circle = new google.maps.Circle({
-        center: new google.maps.LatLng(-37.809581, 144.895007),
+        center: e.latLng,
         clickable: true,
         draggable: false,
         editable: false,
@@ -129,90 +126,17 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
         strokeOpacity: 0.62,
         strokeWeight: 1
       });
-      //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
-      //return google.maps.addListener(circle)
-      return google.maps.event.addListener(circle, 'click', FCAD);
+      google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
+      return google.maps.event.addListener(circle, 'click', circleDrawHandler);
     };
-    FCAD();
-    ATP = function(e) {
-          var circle, radius, select, unitKey;
-
-          select = $('#unitSelector');
-          //unitKey = $('option', select).eq(select[0].selectedIndex).val();
-          unitKey = $('option', select).eq(select[0].selectedIndex).val();
-          //radius = parseFloat(document.getElementById('radiusInput').value);
-          radius = 1.24274
-          radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
-          circle = new google.maps.Circle({
-            center: new google.maps.LatLng(-37.8730674, 144.79242),
-            clickable: true,
-            draggable: false,
-            editable: false,
-            fillColor: '#004de8',
-            fillOpacity: 0.27,
-            map: map,
-            radius: radius,
-            strokeColor: '#004de8',
-            strokeOpacity: 0.62,
-            strokeWeight: 1
-          });
-          //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
-          //return google.maps.addListener(circle)
-          return google.maps.event.addListener(circle, 'click', FCAD);
-        };
-    ATP();
-    //google.maps.event.addListener(map, 'click', circleDrawHandler);
+    google.maps.event.addListener(map, 'click', circleDrawHandler);
     searchInput = document.getElementById('searchInput');
     $(searchInput.form).on({
       submit: function() {
         return false;
       }
     });
-
-    /*function initialize() {
-
-     var options = {
-      types: ['(cities)'],
-      componentRestrictions: {country: "au"}
-     };
-
-     var input = document.getElementById('searchTextField');
-     var autocomplete = new google.maps.places.Autocomplete(input, options);
-     return autocomplete;
-    }*/
-
-    /*var melbBounds = new google.maps.LatLngBounds(
-       new google.maps.LatLng(-37.540112, 145.507736),
-       new google.maps.LatLng(-38.411251, 144.553207)
-       );
-
-    var options = {
-          types: ['address'],
-          bounds: melbBounds,
-          strictBounds: true,
-          //componentRestrictions: {country: "au", cities: "melb"}
-    };*/
-
-    /*var searchBox = new google.maps.places.Autocomplete(searchInput, {
-       types: ['address'],
-       bounds: melbBounds,
-       strictBounds: true,
-    });*/
-
-    /*var searchBox = new google.maps.places.SearchBox(searchInput, {
-                                                                   types: ['address']
-                                                                   bounds: melbBounds,
-                                                                   //componentRestrictions: {country: "au"},
-                                                                   strictBounds: true,
-                                                                });*/
-
-    //var searchBox = new google.maps.places.Autocomplete(searchInput, options);
-
-    searchBox = new google.maps.places.SearchBox(searchInput)
-
-    //searchBox = new google.maps.places.SearchBox(searchInput, options);
-    //searchBox = initialize();
-
+    searchBox = new google.maps.places.SearchBox(searchInput);
     google.maps.event.addListener(searchBox, 'places_changed', function() {
 
       /* When a place is selected, center on it */
@@ -288,7 +212,3 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
   });
 
 }).call(this);
-
-//
-
-//# sourceMappingURL=app.js.map
