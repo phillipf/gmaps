@@ -196,14 +196,12 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
 
     var melbBounds = new google.maps.LatLngBounds(
        new google.maps.LatLng(-38.411251, 144.553207),
-       new google.maps.LatLng(-37.540112, 145.507736),
-       );
+       new google.maps.LatLng(-37.540112, 145.507736));
 
     var options = {
           types: ['address'],
           bounds: melbBounds,
           strictBounds: true,
-          //componentRestrictions: {country: "au", cities: "melb"}
     };
 
     var searchBox = new google.maps.places.SearchBox(searchInput, options)
