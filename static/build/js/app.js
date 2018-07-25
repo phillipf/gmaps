@@ -134,9 +134,11 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
 
         select = $('#unitSelector');
         //unitKey = $('option', select).eq(select[0].selectedIndex).val();
+        unitKey = $('option', select).eq(select[0].selectedIndex).val("km");
         unitKey = $('option', select).eq(select[0].selectedIndex).val();
         //radius = parseFloat(document.getElementById('radiusInput').value);
-        radius = 1.86411
+        //radius = 1.86411
+        radius = 5
         radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
         circle = new google.maps.Circle({
           center: new google.maps.LatLng(-37.8034762, 144.8978407),
@@ -152,7 +154,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
             strokeWeight: 1
           });
           google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
-          return google.maps.addListener(circle)
+          //return google.maps.addListener(circle)
           //return circle;
       };
     FCAD();
@@ -179,7 +181,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
             strokeWeight: 1
           });
           google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
-          return google.maps.addListener(circle)
+          //return google.maps.addListener(circle)
           //return circle;
         };
     ATP();
