@@ -139,7 +139,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
         radius = 1.86411
         radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
         circle = new google.maps.Circle({
-          center: new google.maps.LatLng(-37.809581, 144.895007),
+          center: new google.maps.LatLng(-37.807876, 144.903716),
           clickable: true,
           draggable: false,
           editable: false,
