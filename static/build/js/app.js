@@ -107,7 +107,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
       }
       return markers = [];
     };
-    circleDrawHandler = function(e) {
+    /*circleDrawHandler = function(e) {
       var circle, radius, select, unitKey;
       select = $('#unitSelector');
       unitKey = $('option', select).eq(select[0].selectedIndex).val();
@@ -128,7 +128,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
       });
       google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
       return google.maps.event.addListener(circle, 'click', circleDrawHandler);
-    };
+    };*/
     FCAD = function(e) {
         var circle, radius, select, unitKey;
 
@@ -153,7 +153,7 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
             strokeOpacity: 0.62,
             strokeWeight: 1
           });
-          google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
+          //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
           //return google.maps.addListener(circle)
           //return circle;
       };
@@ -163,9 +163,10 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
 
           select = $('#unitSelector');
           //unitKey = $('option', select).eq(select[0].selectedIndex).val();
+          unitKey = $('option', select).eq(select[0].selectedIndex).val("km");
           unitKey = $('option', select).eq(select[0].selectedIndex).val();
           //radius = parseFloat(document.getElementById('radiusInput').value);
-          radius = 1.24274
+          radius = 2
           radius = (radius / earthRadii[unitKey]) * earthRadii['mt'];
           circle = new google.maps.Circle({
             center: new google.maps.LatLng(-37.8730674, 144.79242),
@@ -180,12 +181,12 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
             strokeOpacity: 0.62,
             strokeWeight: 1
           });
-          google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
+          //google.maps.event.addListener(circle, 'rightclick', polygonDestructionHandler);
           //return google.maps.addListener(circle)
           //return circle;
         };
     ATP();
-    google.maps.event.addListener(map, 'click', circleDrawHandler);
+    //google.maps.event.addListener(map, 'click', circleDrawHandler);
     searchInput = document.getElementById('searchInput');
     $(searchInput.form).on({
       submit: function() {
